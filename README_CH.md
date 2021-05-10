@@ -74,4 +74,4 @@ flutter_vap: ${last_version}
 ```
 
 ### 例子
-[github]()
+[github](https://github.com/qq326646683/flutter_vap/blob/main/example/lib/main.dart)
