@@ -1,4 +1,4 @@
 #import <Flutter/Flutter.h>
-
-@interface FlutterVapPlugin : NSObject<FlutterPlugin>
+#import "UIView+VAP.h"
+@interface FlutterVapPlugin : NSObject<FlutterPlugin,HWDMP4PlayDelegate>
 @end
