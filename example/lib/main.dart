@@ -31,10 +31,7 @@ class _MyAppState extends State<MyApp> {
   Future<void> initDownloadPath() async {
     Directory appDocDir = await getApplicationDocumentsDirectory();
     String rootPath = appDocDir.path;
-    downloadPathList = [
-      "$rootPath/vap_demo1.mp4",
-      "$rootPath/vap_demo2.mp4"
-    ];
+    downloadPathList = ["$rootPath/vap_demo1.mp4", "$rootPath/vap_demo2.mp4"];
     print("downloadPathList:$downloadPathList");
   }
 

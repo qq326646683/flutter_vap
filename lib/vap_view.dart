@@ -10,7 +10,7 @@ class VapView extends StatelessWidget {
   Widget build(BuildContext context) {
     if (Platform.isAndroid) {
       return VapViewForAndroid();
-    } else if (Platform.isAndroid) {
+    } else if (Platform.isIOS) {
       return VapViewForIos();
     }
     return Container();

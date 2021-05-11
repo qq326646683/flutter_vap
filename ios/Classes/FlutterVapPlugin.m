@@ -1,20 +1,14 @@
 #import "FlutterVapPlugin.h"
+#import "NativeVapView.h"
 
 @implementation FlutterVapPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  FlutterMethodChannel* channel = [FlutterMethodChannel
-      methodChannelWithName:@"flutter_vap"
-            binaryMessenger:[registrar messenger]];
-  FlutterVapPlugin* instance = [[FlutterVapPlugin alloc] init];
-  [registrar addMethodCallDelegate:instance channel:channel];
+  
+    NativeVapViewFactory* factory = [[NativeVapViewFactory alloc] initWithRegistrar: registrar];
+    [registrar registerViewFactory:factory withId:@"flutter_vap"];
+    
 }
 
-- (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
-  if ([@"getPlatformVersion" isEqualToString:call.method]) {
-    result([@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]]);
-  } else {
-    result(FlutterMethodNotImplemented);
-  }
-}
+
 
 @end
