@@ -93,6 +93,7 @@ class _MyAppState extends State<MyApp> {
                   ],
                 ),
                 IgnorePointer(
+                  //VapView可以通过外层包Container(),设置宽高来限制弹出视频的宽高
                   child: VapView(),
                 ),
               ],
