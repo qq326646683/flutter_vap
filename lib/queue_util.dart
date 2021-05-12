@@ -74,7 +74,9 @@ class QueueUtil {
     taskInfo.controller.sink.add(taskInfo);
 
     /// 出队列
-    _taskList.removeAt(0);
+    if (_taskList.length > 0){
+      _taskList.removeAt(0);
+    }
     _isTaskRunning = false;
 
     /// 递归执行任务
