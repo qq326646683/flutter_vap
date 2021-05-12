@@ -80,26 +80,22 @@
 
 #pragma mark VAPWrapViewDelegate--播放回调
 - (void) vapWrap_viewDidStartPlayMP4:(VAPView *)container{
-    NSLog(@"回调----vapWrap_viewDidStartPlayMP4");
     playStatus = true;
 }
 
 - (void) vapWrap_viewDidFailPlayMP4:(NSError *)error{
-    NSLog(@"回调----vapWrap_viewDidFailPlayMP4");
     NSDictionary *resultDic = @{@"status":@"failure",@"errorMsg":error.description};
     _result(resultDic);
 }
 
 - (void) vapWrap_viewDidStopPlayMP4:(NSInteger)lastFrameIndex view:(VAPView *)container{
-    NSLog(@"回调----vapWrap_viewDidStopPlayMP4");
-    NSDictionary *resultDic = @{@"status":@"complete"};
-    _result(resultDic);
     playStatus = false;
 }
     
 -(void) vapWrap_viewDidFinishPlayMP4:(NSInteger)totalFrameCount view:(VAPView *)container {
-    NSLog(@"回调----vapWrap_viewDidFinishPlayMP4");
-
+    NSDictionary *resultDic = @{@"status":@"complete"};
+    _result(resultDic);
+    playStatus = false;
 }
 
 - (UIView*)view {

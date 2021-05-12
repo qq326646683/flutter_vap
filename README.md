@@ -24,6 +24,14 @@ flutter_vap: ${last_version}
 ```
 
 ### How to use
+```dart
+import 'package:flutter_vap/flutter_vap.dart';
+
+IgnorePointer(
+  // VapView can set the width and height through the outer package Container() to limit the width and height of the pop-up video
+  child: VapView(),
+),
+```
 
 1. Play local video
 ```dart

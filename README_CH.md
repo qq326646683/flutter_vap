@@ -21,6 +21,14 @@ flutter_vap: ${last_version}
 ```
 
 ### 使用
+```dart
+import 'package:flutter_vap/flutter_vap.dart';
+
+IgnorePointer(
+  // VapView可以通过外层包Container(),设置宽高来限制弹出视频的宽高
+  child: VapView(),
+),
+```
 
 1. 播放本地视频
 ```dart

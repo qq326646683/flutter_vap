@@ -60,7 +60,6 @@ class QueueUtil {
   }
 
   _doTask() async {
-    if (_isCancelQueue) return;
     if (_isTaskRunning) return;
     if (_taskList.isEmpty) return;
 
@@ -73,10 +72,10 @@ class QueueUtil {
 
     taskInfo.controller.sink.add(taskInfo);
 
+    if (_isCancelQueue) return;
+
     /// 出队列
-    if (_taskList.length > 0){
-      _taskList.removeAt(0);
-    }
+    _taskList.removeAt(0);
     _isTaskRunning = false;
 
     /// 递归执行任务
