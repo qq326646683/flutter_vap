@@ -1,6 +1,19 @@
 
 #import "NativeVapView.h"
 #import "UIView+VAP.h"
+#import "QGVAPWrapView.h"
+
+
+@interface NativeVapView : NSObject <FlutterPlatformView, VAPWrapViewDelegate>
+
+- (instancetype)initWithFrame: (CGRect) frame
+               viewIdentifier: (int64_t) viewId
+                    arguments: (id _Nullable) args
+                    mRegistrar: (NSObject<FlutterPluginRegistrar> *) registrar;
+
+- (UIView*) view;
+
+@end
 
 
 @implementation NativeVapViewFactory {
