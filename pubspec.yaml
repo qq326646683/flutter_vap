@@ -5,7 +5,7 @@ author: qq326646683<326646683@qq.com>,justyouzxy<1120540016@qq.com>
 homepage: https://github.com/qq326646683/flutter_vap
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=1.20.0"
 
 dependencies:

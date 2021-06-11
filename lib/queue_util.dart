@@ -7,7 +7,7 @@ class QueueUtil {
   /// Use map key to store multiple QueueUtil singletons, the purpose is to isolate multiple types of queue tasks without interfering with each other
   static Map<String, QueueUtil> _instance = Map<String, QueueUtil>();
 
-  static QueueUtil get(String key) {
+  static QueueUtil? get(String key) {
     if (_instance[key] == null) {
       _instance[key] = QueueUtil._();
     }
@@ -70,7 +70,7 @@ class QueueUtil {
     /// 模拟执行任务
     await taskInfo.doSomething?.call();
 
-    taskInfo.controller.sink.add(taskInfo);
+    taskInfo.controller?.sink.add(taskInfo);
 
     if (_isCancelQueue) return;
 
@@ -85,8 +85,8 @@ class QueueUtil {
 
 class _TaskInfo {
   int id; // 任务唯一标识
-  Function doSomething;
-  StreamController<_TaskInfo> controller;
+  Function? doSomething;
+  StreamController<_TaskInfo>? controller;
 
   _TaskInfo(this.id, this.doSomething, {this.controller});
 }

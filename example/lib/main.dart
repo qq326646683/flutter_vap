@@ -19,7 +19,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<String> downloadPathList;
+  List<String> downloadPathList = [];
   bool isDownload = false;
 
   @override
@@ -115,23 +115,23 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  Future<Map<dynamic, dynamic>> _playFile(String path) async {
+  Future<Map<dynamic, dynamic>?> _playFile(String path) async {
     if (path == null) {
       return null;
     }
     var res = await VapController.playPath(path);
-    if (res["status"] == "failure") {
+    if (res!["status"] == "failure") {
       showToast(res["errorMsg"]);
     }
     return res;
   }
 
-  Future<Map<dynamic, dynamic>> _playAsset(String asset) async {
+  Future<Map<dynamic, dynamic>?> _playAsset(String asset) async {
     if (asset == null) {
       return null;
     }
     var res = await VapController.playAsset(asset);
-    if (res["status"] == "failure") {
+    if (res!["status"] == "failure") {
       showToast(res["errorMsg"]);
     }
     return res;
@@ -141,12 +141,12 @@ class _MyAppState extends State<MyApp> {
     // 模拟多个地方同时调用播放,使得队列执行播放。
     // Simultaneously call playback in multiple places, making the queue perform playback.
     QueueUtil.get("vapQueue")
-        .addTask(() => VapController.playPath(downloadPathList[0]));
+        ?.addTask(() => VapController.playPath(downloadPathList[0]));
     QueueUtil.get("vapQueue")
-        .addTask(() => VapController.playPath(downloadPathList[1]));
+        ?.addTask(() => VapController.playPath(downloadPathList[1]));
   }
 
   _cancelQueuePlay() {
-    QueueUtil.get("vapQueue").cancelTask();
+    QueueUtil.get("vapQueue")?.cancelTask();
   }
 }

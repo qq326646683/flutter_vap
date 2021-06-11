@@ -7,11 +7,11 @@ class VapController {
 
   /// return: play error:       {"status": "failure", "errorMsg": ""}
   ///         play complete:    {"status": "complete"}
-  static Future<Map<dynamic, dynamic>> playPath(String path) async {
+  static Future<Map<dynamic, dynamic>?> playPath(String path) async {
     return _channel.invokeMethod('playPath', {"path": path});
   }
 
-  static Future<Map<dynamic, dynamic>> playAsset(String asset) {
+  static Future<Map<dynamic, dynamic>?> playAsset(String asset) {
     return _channel.invokeMethod('playAsset', {"asset": asset});
   }
 
