@@ -23,10 +23,10 @@ import kotlinx.coroutines.launch
 import java.io.File
 
 
-internal class NativeVapView(binaryMessenger: BinaryMessenger, context: Context, id: Int, creationParams: Map<String?, Any?>?) : MethodChannel.MethodCallHandler, PlatformView {
-    private val mContext: Context = context
+internal class NativeVapView(binaryMessenger: BinaryMessenger, context: Context?, id: Int, creationParams: Map<String?, Any?>?) : MethodChannel.MethodCallHandler, PlatformView {
+    private val mContext: Context = context!
 
-    private val vapView: AnimView = AnimView(context)
+    private val vapView: AnimView = AnimView(context!)
     private var channel: MethodChannel
     private var methodResult: MethodChannel.Result? = null
 
