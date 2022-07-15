@@ -9,8 +9,8 @@ import io.flutter.plugin.platform.PlatformViewFactory
 class NativeVapViewFactory(binaryMessenger: BinaryMessenger) : PlatformViewFactory(StandardMessageCodec.INSTANCE) {
     val mBinaryMessenger = binaryMessenger
 
-    override fun create(context: Context, viewId: Int, args: Any?): PlatformView {
-        val creationParams = args as Map<String?, Any?>?
+    override fun create(context: Context, viewId: Int, args: Any): PlatformView {
+        val creationParams = args as Map<String?, Any?>
         return NativeVapView(mBinaryMessenger, context, viewId, creationParams)
 
     }
