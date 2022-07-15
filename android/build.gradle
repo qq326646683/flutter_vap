@@ -51,4 +51,5 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.8"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.8"
     implementation "com.egame.vap:animplayer:2.0.15"
+    implementation 'androidx.annotation:annotation:1.2.0'
 }
